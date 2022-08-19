@@ -34,7 +34,7 @@ class Solution(object):
                 l = mid
             else:
                 r = mid-1
-        return l
+        return r
             
             
             
