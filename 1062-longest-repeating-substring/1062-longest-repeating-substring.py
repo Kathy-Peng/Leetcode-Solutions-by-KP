@@ -29,7 +29,7 @@ class Solution(object):
         l = 0
         r = len(s)-1
         while l < r: 
-            mid = (l+r+1)//2
+            mid = l + (r - l + 1) //2
             if self.repeat(s,mid):
                 l = mid
             else:
