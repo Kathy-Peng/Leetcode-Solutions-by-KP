@@ -18,7 +18,7 @@ class Solution(object):
         l,  r = max(nums), sum(nums)
         res = r
         while l <= r:
-            mid = (l + r) // 2
+            mid = (l + r + 1) // 2
             if self.helper(nums, mid, m):
                 res = mid
                 r = mid-1
