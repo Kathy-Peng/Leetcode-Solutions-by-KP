@@ -20,7 +20,6 @@ class Solution(object):
         r = sum(weights)
         while l < r:
             mid = (l + r) / 2
-            print(mid, self.helper(weights, mid, days))
             if self.helper(weights, mid, days):
                 r = mid
             else:
