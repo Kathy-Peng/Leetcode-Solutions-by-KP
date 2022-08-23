@@ -16,12 +16,10 @@ class Solution(object):
         :rtype: int
         """
         l,  r = max(nums), sum(nums)
-        res = r
-        while l <= r:
-            mid = l + (r-l+1) // 2
+        while l < r:
+            mid = (l + r) // 2
             if self.helper(nums, mid, m):
-                res = mid
-                r = mid-1
+                r = mid
             else:
                 l = mid+1
-        return res
+        return r
