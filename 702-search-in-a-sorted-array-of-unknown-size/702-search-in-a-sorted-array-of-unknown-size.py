@@ -17,7 +17,7 @@ class Solution(object):
         :rtype: int
         """
         l = 0
-        r = 10000
+        r = target - reader.get(0)
         #find exact index of the target
         while l <= r:
             mid = (l + r) /2
