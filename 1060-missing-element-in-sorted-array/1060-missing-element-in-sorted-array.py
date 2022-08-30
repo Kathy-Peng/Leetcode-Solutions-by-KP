@@ -21,7 +21,7 @@ class Solution(object):
         while l < r:
             mid = (l + r) / 2
             curr = self.count(nums, mid)
-            print(mid,curr)
+            
             if curr < k:
                 l = mid + 1
             if curr >= k:
