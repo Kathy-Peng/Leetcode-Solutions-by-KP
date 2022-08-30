@@ -7,8 +7,6 @@
 class Solution(object):
     def bst_search(self, root, min_diff, val, target):
         if root == None:
-            print('here?')
-            print(val)
             return val
         if root.val == target:
             return root.val
