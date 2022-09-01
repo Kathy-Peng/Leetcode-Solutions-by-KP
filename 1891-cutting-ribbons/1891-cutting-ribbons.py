@@ -6,10 +6,7 @@ class Solution(object):
         :rtype: int
         """
         def helper(ribbons, mid, k ):
-            num = 0
-            for item in ribbons:
-                num += item // mid
-            return num >= k
+            return sum([item // mid for item in ribbons]) >= k
        
         l = 0
         r = max(ribbons)
