@@ -24,6 +24,7 @@ class UndergroundSystem(object):
         """
         checkin_station = self.arrival_info[id][0]
         checkin_time = self.arrival_info[id][1]
+        del self.arrival_info[id]
         if (checkin_station,stationName) not in self.total:
             self.total[(checkin_station,stationName)] = [t-checkin_time, 1]
         else:
