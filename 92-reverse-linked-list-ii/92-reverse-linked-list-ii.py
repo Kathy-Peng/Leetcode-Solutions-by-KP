@@ -11,22 +11,24 @@ class Solution(object):
         :type right: int
         :rtype: ListNode
         """
-        dummy_head = ListNode(0, head)
-        
-        left_prev, curr = dummy_head, head
-        
-        for i in range(left-1):
-            left_prev = curr
+        # step 1: move to the left index using two pointers
+        dummy = ListNode(0, head)
+        groupPrev = dummy
+        curr = head
+        for i in range(left - 1):
+            groupPrev = curr
             curr = curr.next
-            
+        # step 2: start reversing nodes from left index and stop at right index
         prev = None
-        for i in range(right - left + 1):
-            tmpNext = curr.next
+        for j in range(right - left + 1):
+            tmp = curr.next
             curr.next = prev
-            prev, curr = curr, tmpNext
+            prev = curr
+            curr = tmp
+        # step 3: make groupPrev point to right and make left point to groupNext
+        groupPrev.next.next = curr
+        groupPrev.next = prev
+        return dummy.next
         
-        left_prev.next.next = curr
-        left_prev.next = prev
-        return dummy_head.next
     
             
