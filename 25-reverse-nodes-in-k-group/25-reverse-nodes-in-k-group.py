@@ -30,17 +30,19 @@ class Solution(object):
                 break
             groupNext = kth.next
         
-        #step 2: if we succeed in previous step, start reversing
+            #step 2: if we succeed in previous step, start reversing
             prev = groupNext
             curr = groupPrev.next
             while curr != groupNext:
                 tmp = curr.next
                 curr.next = prev
                 prev,curr = curr, tmp
-            
+            #step 3: the dummy head we are trying to return should point to kth node
             tmp2 = groupPrev.next
             groupPrev.next = kth
+            #step 4: the previous head now becomes the new group prev
             groupPrev = tmp2
+            
         return dummy_head.next
         
         
