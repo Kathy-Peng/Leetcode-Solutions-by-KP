@@ -11,6 +11,7 @@ class Solution(object):
         :type k: int
         :rtype: ListNode
         """
+        # a helper function to 
         def helper(head, k):
             curr = head
             for i in range(k):
@@ -19,15 +20,16 @@ class Solution(object):
                 curr = curr.next
             return curr
         
-        #step 1: we call a helper function to move k steps forward
         dummy_head = ListNode(0, head)
         groupPrev = dummy_head
         groupNext = None
         while True:
+            #step 1: we call a helper function to move k steps forward
             kth = helper(groupPrev, k)
             if kth == None:
                 break
             groupNext = kth.next
+        
         #step 2: if we succeed in previous step, start reversing
             prev = groupNext
             curr = groupPrev.next
@@ -39,10 +41,6 @@ class Solution(object):
             tmp2 = groupPrev.next
             groupPrev.next = kth
             groupPrev = tmp2
-        
-        #step 3: move on to the start node of the next k group and repeat the process
-        
-        #step 4: connect the last node of previous k group to the start of next k group
         return dummy_head.next
         
         
