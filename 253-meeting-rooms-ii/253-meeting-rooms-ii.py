@@ -14,7 +14,7 @@ class Solution(object):
         end.sort()
         l1, l2 = 0,0
         max_count, count = 0,0 
-        while l1<len(intervals):
+        while l1<len(intervals) and l2<len(intervals):
             if start[l1]<end[l2]:
                 count += 1
                 if count > max_count:
