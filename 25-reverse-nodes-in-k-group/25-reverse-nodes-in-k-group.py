@@ -11,37 +11,30 @@ class Solution(object):
         :type k: int
         :rtype: ListNode
         """
-        # a helper function to 
         def helper(head, k):
-            curr = head
+            #given head, moves head k steps forward
             for i in range(k):
-                if curr == None:
-                    return curr
-                curr = curr.next
-            return curr
+                if head == None:
+                    return None
+                head = head.next
+            return head
         
         dummy_head = ListNode(0, head)
         groupPrev = dummy_head
-        groupNext = None
+        curr = head
         while True:
-            #step 1: we call a helper function to move k steps forward
-            kth = helper(groupPrev, k)
-            if kth == None:
+            kth = helper(groupPrev, k) 
+            if not kth:
                 break
             groupNext = kth.next
-        
-            #step 2: if we succeed in previous step, start reversing
             prev = groupNext
-            curr = groupPrev.next
-            while curr != groupNext:
+            while curr!=groupNext:
                 tmp = curr.next
                 curr.next = prev
-                prev,curr = curr, tmp
-            #step 3: the dummy head we are trying to return should point to kth node
-            tmp2 = groupPrev.next
+                prev, curr = curr, tmp
+            newgroupprev = groupPrev.next 
             groupPrev.next = kth
-            #step 4: the previous head now becomes the new group prev
-            groupPrev = tmp2
+            groupPrev = newgroupprev
             
         return dummy_head.next
         
