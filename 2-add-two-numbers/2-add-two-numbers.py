@@ -10,27 +10,31 @@ class Solution(object):
         :type l2: ListNode
         :rtype: ListNode
         """
-        dummy = ListNode(0)
-        curr = dummy
+        dummy_head = ListNode(0)
+        curr = dummy_head
         carry = 0
+        #step 1: loop until we hit the end of both list
         while l1 or l2:
-            #handle edge cases when two list nodes are of different length
+            #step 2: extract values from both lists and add them up alongside carry
             v1 = l1.val if l1 else 0
             v2 = l2.val if l2 else 0
-            #new digit
+            print(v1, v2)
             sum = v1 + v2 + carry
-            mod = sum % 10
+            #step 3: calculate the floor division and modulo of the sum 
+            #and create new node to reflect this and update carry
             carry = sum // 10
-            #update variables
-            curr.next = ListNode(mod)
-            curr = curr.next
+            num = sum % 10
+            curr.next = ListNode(num)
+            curr = curr.next 
+            #step 4: move on to the next nodes in the list
             l1 = l1.next if l1 else None
             l2 = l2.next if l2 else None
-        #handle edge case when there is a leftover carry in the begining
-        if carry:
-            curr.next = ListNode(carry)
-        return dummy.next
-            
+        #step 5: if there is a carry term make sure to include it
+        print(carry)
+        if carry != 0:
+            new = ListNode(carry)
+            curr.next = new
+        return dummy_head.next
             
             
             
