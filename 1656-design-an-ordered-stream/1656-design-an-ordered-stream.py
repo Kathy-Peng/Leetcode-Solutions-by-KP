@@ -17,9 +17,11 @@ class OrderedStream(object):
         to_ret = []
         self.inserted[idKey]=value
         self.returned[idKey]=False
+        #step 1: determine whether we need to return anything at all
         for i in range(1, idKey):
             if i not in self.inserted:
                 flag = False
+        #step 2: if we need to return anything, return only items that have not been returned yet, up until the last consecutive item
         if flag:
             idx = 1
             while idx in self.returned:
