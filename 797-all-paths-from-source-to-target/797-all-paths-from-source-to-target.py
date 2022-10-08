@@ -21,4 +21,3 @@ class Solution(object):
         stack = graph[0]
         self.helper(graph, stack, [0], results)
         return results
-       
