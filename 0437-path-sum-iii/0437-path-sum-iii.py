@@ -25,7 +25,9 @@ class Solution:
                 helper(root.left, prefix_sum)
             if root.right:
                 helper(root.right, prefix_sum)
-            self.cache[prefix_sum]-=1
+
+            self.cache[prefix_sum] -= 1
+        
         helper(root, 0)
         return self.total_path
                 
