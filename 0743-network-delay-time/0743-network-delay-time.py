@@ -17,6 +17,8 @@ class Solution:
         while not pq.empty():
             prev_cost, node = pq.get()
             visited[node]=prev_cost
+            #step 3: add node to visited once it's been popped from the pq
+            #and terminate search once all the nodes are visited
             if len(visited)==n:
                 return prev_cost
             if node not in adj_max:
@@ -25,6 +27,7 @@ class Solution:
                 neighbor = item[0]
                 curr_cost = item[1]
                 total_cost = prev_cost + curr_cost
+                #step 4: calculate the total cost by adding current cost and prev_cost(cost of parent)
                 if neighbor not in visited:
                     pq.put((total_cost, neighbor))
         return -1
