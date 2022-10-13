@@ -13,10 +13,11 @@ class Solution:
         #step 2: initialize the priority queue and visited_set
         pq = PriorityQueue()
         pq.put((0, k))
-        visited = {k:0}
+        visited = set()
+        visited.add(k)
         while not pq.empty():
             prev_cost, node = pq.get()
-            visited[node]=prev_cost
+            visited.add(node)
             #step 3: add node to visited once it's been popped from the pq
             #and terminate search once all the nodes are visited
             if len(visited)==n:
@@ -27,7 +28,7 @@ class Solution:
                 neighbor = item[0]
                 curr_cost = item[1]
                 total_cost = prev_cost + curr_cost
-                #step 4: calculate the total cost by adding current cost and prev_cost
+                #step 4: calculate the total cost by adding current cost and prev_cost(cost of parent node)
                 if neighbor not in visited:
                     pq.put((total_cost, neighbor))
         return -1
