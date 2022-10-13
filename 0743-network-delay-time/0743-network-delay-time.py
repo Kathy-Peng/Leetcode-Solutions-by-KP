@@ -27,7 +27,7 @@ class Solution:
                 neighbor = item[0]
                 curr_cost = item[1]
                 total_cost = prev_cost + curr_cost
-                #step 4: calculate the total cost by adding current cost and prev_cost(cost of parent)
+                #step 4: calculate the total cost by adding current cost and prev_cost
                 if neighbor not in visited:
                     pq.put((total_cost, neighbor))
         return -1
