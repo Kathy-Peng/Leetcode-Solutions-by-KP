@@ -13,7 +13,6 @@ class Solution:
                     if len(stack)!=0 and stack[-1]=='(':
                         stack.pop()
                         result = result + char
-        print(result)
         if len(stack)!=0:
             final_result = ''
             count = len(stack)
