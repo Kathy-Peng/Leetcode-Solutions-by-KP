@@ -18,9 +18,6 @@ class Solution:
             if len(heap) > k:
                 heappop(heap)
         return [item.word for item in sorted(heap, reverse=True)]
-        
-# from collections import Counter
-# from heapq import heappush, heappop
 
 
 
