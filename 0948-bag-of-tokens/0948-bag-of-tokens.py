@@ -7,18 +7,19 @@ class Solution:
             return 0
         i ,j = 0, len(tokens)-1
         score = 0
-        answer = 0
+        max_score = 0
         while j >= i:
             if power >= tokens[i]:
                 power -= tokens[i]
                 score += 1
                 i += 1
-                answer = max(answer, score)
+                if score > max_score:
+                    max_score = score
             elif power < tokens[j]:
                 power += tokens[j]
                 score -= 1
                 j -= 1
-        return answer
+        return max_score
                 
             
             
