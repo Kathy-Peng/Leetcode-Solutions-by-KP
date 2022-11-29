@@ -9,7 +9,6 @@ class Solution:
         score = 0
         answer = 0
         while j >= i:
-            print(power)
             if power >= tokens[i]:
                 power -= tokens[i]
                 score += 1
@@ -19,9 +18,6 @@ class Solution:
                 power += tokens[j]
                 score -= 1
                 j -= 1
-            else:
-                return answer
-        
         return answer
                 
             
