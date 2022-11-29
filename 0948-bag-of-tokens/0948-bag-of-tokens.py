@@ -15,7 +15,7 @@ class Solution:
                 score += 1
                 i += 1
                 answer = max(answer, score)
-            elif power < tokens[j] and score >0:
+            elif power < tokens[j]:
                 power += tokens[j]
                 score -= 1
                 j -= 1
