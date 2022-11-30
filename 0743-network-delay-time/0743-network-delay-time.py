@@ -14,7 +14,7 @@ class Solution:
         pq = PriorityQueue()
         pq.put((0, k))
         visited = set()
-        visited.add(k)
+       
         while not pq.empty():
             prev_cost, node = pq.get()
             visited.add(node)
